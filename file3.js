@@ -1,13 +1,25 @@
-/*function add(a,b) {
+function Roman_To_Integer(s){
+   const map = {
+    'I':1,
+    'V':5,
+    'X':10,
+    'L':50,
+    'C':100,
+    'D':500,
+    'M':1000
+   }
+   const size = s.length;
+   let result = 0;
 
-return a + b;
-}
+   for(let i = 0; i<size;i++){
+       if(map[s[i]] < map[s[i + 1]]){
 
-console.log( add(3,8));*/
+          result += map[s[i+1]] - map[s[i++]] ;
+          countinue;
+       }
+         result += map[s[i]];
+   }
+   
+   return result;
 
-
-function sum(a,b,c){
-    return Math.abs(( a + b ) - c ) < Number.EPSILON;
-}
-
-console.log(sum(0.1,.2, .3));
+};

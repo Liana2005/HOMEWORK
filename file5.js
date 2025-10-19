@@ -1,6 +1,24 @@
+function maxArea(height) {
+    let left = 0;
+    let right = height.length - 1;
+    let maxArea = 0;
 
- let arr1 = [1,2];
- let arr2 = [3,4];
- let  arr3 = [...arr1,...arr2];
+    while (left < right) {
+        const width = right - left;
+        const minHeight = Math.min(height[left], height[right]);
+        const area = width * minHeight;
+        maxArea = Math.max(maxArea, area);
 
-console.log(arr3);
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return maxArea;
+}
+
+
+const height = [1,8,6,2,5,4,8,3,7];
+console.log(maxArea(height)); 
