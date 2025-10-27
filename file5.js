@@ -1,24 +1,21 @@
-function maxArea(height) {
-    let left = 0;
-    let right = height.length - 1;
-    let maxArea = 0;
 
-    while (left < right) {
-        const width = right - left;
-        const minHeight = Math.min(height[left], height[right]);
-        const area = width * minHeight;
-        maxArea = Math.max(maxArea, area);
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
 
-        if (height[left] < height[right]) {
-            left++;
-        } else {
-            right--;
-        }
-    }
-
-    return maxArea;
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
 }
 
 
-const height = [1,8,6,2,5,4,8,3,7];
-console.log(maxArea(height)); 
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+
+const dog = new Dog("Buddy");
+dog.speak(); 
